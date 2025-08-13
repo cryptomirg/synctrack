@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+  body {
+    @apply bg-gradient-to-br from-pink-50 via-white to-purple-50 font-sans antialiased;
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-500 to-primary-600 text-white font-medium px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-0.5;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-gray-700 font-medium px-6 py-3 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-lg border border-gray-100 p-6;
+  }
+  
+  .phase-card {
+    @apply relative overflow-hidden rounded-xl p-6 text-white shadow-lg transition-all duration-300 hover:scale-105;
+  }
+  
+  .phase-menstrual {
+    @apply bg-gradient-to-br from-menstrual-500 to-menstrual-600;
+  }
+  
+  .phase-follicular {
+    @apply bg-gradient-to-br from-follicular-500 to-follicular-600;
+  }
+  
+  .phase-ovulatory {
+    @apply bg-gradient-to-br from-ovulatory-500 to-ovulatory-600;
+  }
+  
+  .phase-luteal {
+    @apply bg-gradient-to-br from-luteal-500 to-luteal-600;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200;
+  }
+  
+  .voice-button {
+    @apply relative bg-gradient-to-r from-primary-500 to-primary-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105;
+  }
+  
+  .voice-button.recording {
+    @apply animate-pulse bg-gradient-to-r from-red-500 to-red-600;
+  }
+  
+  .task-priority-high {
+    @apply bg-red-100 text-red-800 border-red-200;
+  }
+  
+  .task-priority-medium {
+    @apply bg-yellow-100 text-yellow-800 border-yellow-200;
+  }
+  
+  .task-priority-low {
+    @apply bg-green-100 text-green-800 border-green-200;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent;
+  }
+  
+  .glass-effect {
+    @apply bg-white/80 backdrop-blur-sm border border-white/20;
+  }
+}
