@@ -306,10 +306,68 @@ async def chat_with_assistant(chat_input: Dict):
     
     return {"response": response}
 
+@app.get("/api/tasks/{user_id}")
+async def get_all_tasks(user_id: str):
+    """Get all tasks for a user"""
+    tasks = user_tasks.get(user_id, [])
+    # Add some sample data if no tasks exist
+    if not tasks:
+        tasks = [
+            {
+                "id": "1",
+                "title": "Review quarterly reports",
+                "description": "Analyze Q3 performance metrics",
+                "task_type": "analytical",
+                "estimated_duration": 90,
+                "priority": 3,
+                "completed": False,
+                "phase": "luteal",
+                "scheduled_at": "2025-08-19T10:00:00"
+            },
+            {
+                "id": "2",
+                "title": "Brainstorm new project ideas",
+                "description": "Creative session for next quarter initiatives",
+                "task_type": "creative",
+                "estimated_duration": 120,
+                "priority": 4,
+                "completed": False,
+                "phase": "follicular",
+                "scheduled_at": "2025-08-23T14:00:00"
+            }
+        ]
+    return {"tasks": tasks}
+
 @app.get("/api/tasks/{user_id}/upcoming")
 async def get_upcoming_tasks(user_id: str):
     """Get upcoming tasks"""
     tasks = user_tasks.get(user_id, [])
+    # Add some sample data if no tasks exist
+    if not tasks:
+        tasks = [
+            {
+                "id": "1",
+                "title": "Prepare presentation slides",
+                "description": "Create slides for quarterly review",
+                "task_type": "creative",
+                "start_time": "2025-08-20T10:00:00",
+                "due_date": "2025-08-20",
+                "assigned_phase": "ovulatory",
+                "priority": 4,
+                "estimated_duration": 120
+            },
+            {
+                "id": "2", 
+                "title": "Deep work on coding",
+                "description": "Implement new feature for user dashboard",
+                "task_type": "analytical",
+                "start_time": "2025-08-22T09:00:00",
+                "due_date": "2025-08-22",
+                "assigned_phase": "follicular",
+                "priority": 3,
+                "estimated_duration": 240
+            }
+        ]
     return {"upcoming_tasks": tasks}
 
 if __name__ == "__main__":
